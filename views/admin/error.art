@@ -1,0 +1,10 @@
+{{extend './common/layout.art'}} {{block 'main'}}
+<h3 class="tips">{{msg}}
+</h3>
+        {{/block}} {{block 'script'}}
+        <script>
+            setTimeout(() => {
+                location.href = '/admin/login';
+            }, 3000)
+        </script>
+        {{/block}}
