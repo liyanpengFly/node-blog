@@ -12,6 +12,8 @@ const template = require('art-template')
 const dateFormat = require('dateformat')
 // 导入morgan第三方模块
 const morgan = require('morgan')
+// 导入config
+const config = require('config')
 // 创建网站服务器
 const app = express()
 
@@ -37,6 +39,8 @@ app.use(session(
 
 // 开发静态资源
 app.use(express.static(path.join(__dirname,'public')))
+
+console.log(config.get('db.pwd'),"环境变量的值读取成功")
 
 // 获取系统环境变量返回值是对象
 if (process.env.NODE_ENV == 'development') {

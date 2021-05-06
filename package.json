@@ -12,6 +12,7 @@
   "dependencies": {
     "art-template": "^4.13.2",
     "bcrypt": "^5.0.1",
+    "config": "^3.3.6",
     "dateformat": "^4.5.1",
     "express": "^4.17.1",
     "express-art-template": "^1.0.1",
