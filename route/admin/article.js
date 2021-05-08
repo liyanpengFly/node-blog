@@ -8,10 +8,8 @@ module.exports = async (req,res)=>{
     // 标识 表示当前访问的是文章管理页面
     req.app.locals.currentLink =  "article"
 
-   let  articles = await pagination(Article).find().page(page).size(2).display(3).populate('author').lean().exec();
-   let str = JSON.stringify(articles);
-   let json = JSON.parse(str);
-    res.render('admin/article.art', {
-        articles: json
-    })
+   var articles = await pagination(Article).page(page).size(2).display(3).find().populate('author').exec();
+   var str = JSON.stringify(articles)
+       str = JSON.parse(str)
+       res.render('admin/article.art',{ articles:str })
 }
