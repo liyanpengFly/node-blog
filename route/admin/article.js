@@ -11,5 +11,5 @@ module.exports = async (req,res)=>{
    var articles = await pagination(Article).page(page).size(2).display(3).find().populate('author').exec();
    var str = JSON.stringify(articles)
        str = JSON.parse(str)
-       res.render('admin/article.art',{ articles:str })
+    res.render('admin/article.art',{ articles: str })
 }
