@@ -8,11 +8,11 @@
 	<ul class="list w1100">
 		{{each result.records}}
 		<li class="{{$index % 2 == 0?'fl':'fr'}}">
-			<a href="article.html" class="thumbnail">
+			<a href="/home/article?id={{$value._id}}" class="thumbnail">
 				<img src="{{$value.cover}}">
 			</a>
 			<div class="content">
-				<a class="article-title" href="article.html">{{$value.title}}</a>
+				<a class="article-title" href="/home/article?id={{$value._id}}">{{$value.title}}</a>
 				<div class="article-info">
 					<span class="author">{{$value.author.username}}</span>
 					<span>{{dateFormat($value.publishDate,'yyyy-mm-dd')}}</span>
