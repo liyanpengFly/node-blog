@@ -15,8 +15,18 @@ module.exports = async(req,res)=>{
             // 登陆成功 
             // 将用户名存储在请求对象中
             req.session.username = user.username
+            // 将用户角色存储在session中
+            req.session.role = user.role
             res.app.locals.userInfo = user
-            res.redirect('/admin/user')
+            // 对用户角色进行判断
+            if (user.role == 'admin') {
+                // 重定向到用户列表
+                res.redirect('/admin/user')
+            }else {
+                // 重定向到博客首页
+                res.redirect('/home/')
+            }
+            
         }else {
             res.status(400).render('admin/error',{msg:'邮箱地址或者密码错误'})
         }
